@@ -8,6 +8,7 @@ import { Box, Flex } from "@radix-ui/themes";
 
 import Link from "next/link";
 import classnames from "classnames";
+import { ModeToggle } from "./ModeToggle";
 
 const NavLinks = () => {
   const currentpath = usePathname();
@@ -29,7 +30,8 @@ const NavLinks = () => {
           <Link
             href={item.link}
             className={classnames({
-              "text-gray-600 hover:text-gray-900 transition-colors": true,
+              "text-gray-600 dark:text-white hover:text-gray-900 transition-colors":
+                true,
               "active:text-gray-900": currentpath === item.link,
             })}
           >
@@ -52,11 +54,13 @@ const Navbar = () => {
         align="center"
         height="auto"
       >
-        <Flex align="center" gap="4">
+        <Flex align="center" gap="4" justify="between">
           <Link href="/">
             <SiTask />
           </Link>
           <NavLinks />
+
+          <ModeToggle />
         </Flex>
       </Flex>
     </nav>

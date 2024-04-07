@@ -1,11 +1,11 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
 import { CalendarIcon, InfoCircledIcon } from "@radix-ui/react-icons";
 import { format } from "date-fns";
-import { cn } from "@/lib/utils";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
 
 import { Calendar } from "@/components/ui/calendar";
 import {
@@ -49,7 +49,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Card, Callout } from "@radix-ui/themes";
+import { Callout, Card } from "@radix-ui/themes";
 import { useState } from "react";
 
 export function NewEntry() {
@@ -128,7 +128,7 @@ export function NewEntry() {
             render={({ field }) => (
               <FormItem>
                 <FormLabel>Name</FormLabel>
-                <FormControl>
+                <FormControl typeof="number">
                   <Input placeholder="Name" {...field} />
                 </FormControl>
                 <FormDescription>

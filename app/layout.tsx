@@ -1,4 +1,5 @@
 import "@radix-ui/themes/styles.css";
+import { ThemeProvider } from "./ThemeProvider";
 // import "./theme-config.css";
 import "./globals.css";
 import type { Metadata } from "next";
@@ -21,15 +22,22 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.variable}>
-        <Theme accentColor="purple">
-          <Container>
-            <Card>
-              <Navbar />
-            </Card>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Theme accentColor="purple">
+            <Container>
+              <Card>
+                <Navbar />
+              </Card>
 
-            <main className="p-4">{children}</main>
-          </Container>
-        </Theme>
+              <main className="p-4">{children}</main>
+            </Container>
+          </Theme>
+        </ThemeProvider>
       </body>
     </html>
   );
